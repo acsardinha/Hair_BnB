@@ -3,13 +3,18 @@ class SellingsController < ApplicationController
 
   def new
     @selling = Selling.new
+    authorize @selling
   end
 
   def create
     @selling = Selling.new(selling_params)
     @selling.user = current_user
-    @selling.save
-    redirect_to wigs_path
+    authorize @selling
+    if @selling.save
+      redirect_to wigs_path, notice: 'Order placed sucessfully!'
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
