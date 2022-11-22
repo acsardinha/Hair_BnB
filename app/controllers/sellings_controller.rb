@@ -3,17 +3,20 @@ class SellingsController < ApplicationController
 
   def new
     @selling = Selling.new
+    @wig = Wig.find(params[:wig_id])
     authorize @selling
   end
 
   def create
-    @selling = Selling.new(selling_params)
+    @selling = Selling.new
+    @wig = Wig.find(params[:wig_id])
     @selling.user = current_user
+    @selling.wig = @wig
     authorize @selling
     if @selling.save
       redirect_to wigs_path, notice: 'Order placed sucessfully!'
     else
-      render :new, status: :unprocessable_entity
+      render "wigs/show", status: :unprocessable_entity
     end
   end
 
