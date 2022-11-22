@@ -1,0 +1,7 @@
+<%= simple_form_for @selling do |f| %>
+  <%= f.input :user_id, value: current_user.id, class: 'd-none' %>
+  <%= f.input :wig_id, value: @wig.id, class: 'd-none' %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "Back", wig_path(@wig) %>
