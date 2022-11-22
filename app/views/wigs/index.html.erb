@@ -1,0 +1,13 @@
+<h1>Wigs:</h1>
+<p style="color: green"><%= notice %></p>
+
+<% @wigs.each do |wig| %>
+  <%= wig.name %>
+<% end %>
+
+<br />
+<br />
+<br />
+
+
+<%= link_to "Create a new wig", new_wig_path %>
