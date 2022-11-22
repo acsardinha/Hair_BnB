@@ -7,6 +7,7 @@ class WigsController < ApplicationController
 
   def show
     authorize @wig
+    @selling = Selling.new
   end
 
   def new
