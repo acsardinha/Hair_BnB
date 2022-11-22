@@ -1,1 +1,15 @@
-<h1> TEST</h1>
+<%= render "wigs", wig: @wig %>
+
+<br />
+<br />
+
+<div>
+  <p>
+    <% if policy(@wig).edit? %>
+      <%= link_to "Edit this wig", edit_wig_path(@wig) %>
+    <% end %>
+  </p>
+
+  <p><%= link_to "Delete this wig", @wig, method: :delete if policy(@wig).destroy? %></p>
+  <p><%= link_to "Back to wigs", wigs_path %></p>
+</div>

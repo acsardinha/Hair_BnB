@@ -1,0 +1,14 @@
+<%= form_with model: @wig do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :wig_type %>
+  <%= f.text_field :wig_type %>
+  <%= f.label :color %>
+  <%= f.text_field :color %>
+  <%= f.label :price %>
+  <%= f.number_field :price, step: :any %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.submit %>
+<% end %>
+<%= link_to "Back to wigs", wigs_path %>

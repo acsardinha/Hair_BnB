@@ -36,8 +36,8 @@ class WigsController < ApplicationController
   end
 
   def update
-    authorize @wig
     @wig = Wig.find(params[:id])
+    authorize @wig
     @wig.update(wig_params)
     redirect_to wig_path(@wig)
   end
