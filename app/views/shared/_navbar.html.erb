@@ -44,6 +44,17 @@
           </li>
 
           <li class="nav-item dropdown">
+            <%= icon('fa-solid', 'plus', class: "avatar dropdown-toggle mt-2 s text-muted", id: "navbarDropdownIcon", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Create wig", new_wig_path, class: "dropdown-item"%>
+              <%= link_to "Create glue", "", class: "dropdown-item" %>
+              <%= link_to "Create brush", "", class: "dropdown-item" %>
+              <%= link_to "Create accessorie", "", class: "dropdown-item" %>
+
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
             <%= image_tag "user-icon", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", "", class: "dropdown-item" %>

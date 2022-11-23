@@ -1,13 +1,19 @@
-<h1>Wigs:</h1>
 <p style="color: green"><%= notice %></p>
 
+<div class="cards">
 <% @wigs.each do |wig| %>
-  <%= link_to wig.name, wig %>
+ <div class="card-trip">
+    <%= cl_image_tag wig.photo.key, height: 300, width: 400, crop: :fill %>
+    <div class="card-trip-infos">
+    <div>
+    <%= link_to wig_path(wig) do %>
+      <h2><%= wig.name %></h2>
+    <% end %>
+      <p>Short description here!</p>
+    </div>
+    <h2 class="card-trip-pricing">£99.99</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
 <% end %>
-
-<br />
-<br />
-<br />
-
-
-<%= link_to "Create a new wig", new_wig_path %>
+</div>
