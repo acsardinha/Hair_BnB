@@ -1,5 +1,6 @@
 class WigsController < ApplicationController
   before_action :set_wig, only: %i[show edit destroy]
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
     @wigs = policy_scope(Wig)
