@@ -52,6 +52,6 @@ class WigsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def wig_params
-    params.require(:wig).permit(:wig_type, :color, :name, :price, :description)
+    params.require(:wig).permit(:wig_type, :color, :name, :price, :description, :photo)
   end
 end
