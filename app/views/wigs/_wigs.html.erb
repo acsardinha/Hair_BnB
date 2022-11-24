@@ -2,10 +2,16 @@
   <div class="container-show d-flex justify-content-between">
 
     <div class="col-4">
-      <%= cl_image_tag wig.photo.key, height: 400, width: 300, crop: :fill, class: "img-wig" %>
+      <%= cl_image_tag wig.photo.key, height: 400, width: 300, class: "img-wig" %>
     </div>
 
     <div class="mid-card col-8">
+
+      <p>
+        <span class="h2"><strong><%= wig.name %></strong></span>
+      </p>
+
+
       <div id="description">
         <p>
           <h4><strong>Description:</strong></h4>
@@ -14,41 +20,34 @@
         <%= wig.description %>
         </p>
       </div>
-      <div id="wig-type">
-        <p>
-          <strong>Wig Type:</strong><%= wig.wig_type %>
-        </p>
+      <div class= "d-flex">
+        <div>
+          <div id="wig-type">
+            <p>
+              <span class="h4"><strong> Wig Type: </strong></span><%= wig.wig_type %>
+            </p>
+          </div>
+          <div id= "wig-color">
+            <p>
+              <span class="h4"><strong>Color: </strong></span><%= wig.color %>
+            </p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>
+              <span class="h4"><strong>Wig Owner: </strong></span><%= wig.user.email %>
+            </p>
+          </div>
+          <div>
+            <p>
+              <span class="h4"><strong>Price:</strong></span>
+              <%= wig.price %> €
+            </p>
+          </div>
+          <%= render "/shared/buy_button", wig: @wig, selling: @selling, class: "btn btn-primary" %>
+        </div>
       </div>
-      <div id= "wig-color">
-        <p>
-          <strong>Color:</strong><%= wig.color %>
-        </p>
-      </div>
-      <div>
-        <p>
-          <strong>Name:</strong>
-          <%= wig.name %>
-        </p>
-      </div>
-      <div>
-        <p>
-          <strong>Wig Owner:</strong>
-          <%= wig.user.email %>
-        </p>
-      </div>
-      <div>
-        <p>
-          <strong>Price:</strong>
-          <%= wig.price %> €
-        </p>
-      </div>
-
-      <%= render "/shared/buy_button", wig: @wig, selling: @selling, class: "btn btn-primary" %>
-    </div>
-
-
-    <div class="last-card">
-
     </div>
   </div>
 </div>
