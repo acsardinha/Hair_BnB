@@ -2,7 +2,7 @@
 
 .home_image {
   background-image: asset_url("home_image.png");
-  height: 600px;
+  height: 500px;
   background-position: center;
   align-items: end;
   display: flex;
@@ -35,8 +35,8 @@
 .btn-ghost {
   color: #4A4A4A;
   border: 1px solid #4A4A4A;
-  padding: 16px 48px;
-  font-size: 16px;
+  padding: 32px 96px;
+  font-size: 24px;
   border-radius: 50px;
   font-weight: lighter;
   background-color: azure;
@@ -52,8 +52,6 @@
 
 h1 {
   padding: 16px 48px;
-  margin-top: 48px;
-  margin-bottom: 48px;
   font-size: 48px;
   font-weight: bold;
 }
