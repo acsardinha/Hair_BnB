@@ -1,0 +1,20 @@
+<div class="card-trip">
+  <%= cl_image_tag wig.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="card-trip-infos">
+
+    <div>
+      <%= link_to wig_path(wig) do %>
+        <h2><%= wig.name %></h2>
+      <% end %>
+      <p>Short description here!</p>
+    </div>
+
+    <h2 class="card-trip-pricing">
+      <%= wig.price %>
+    </h2>
+
+    <%= cl_image_tag wig.user.photo.key, height: 300, width: 400, crop: :fill, class:"card-trip-user avatar-bordered" %>
+
+  </div>
+
+</div>
