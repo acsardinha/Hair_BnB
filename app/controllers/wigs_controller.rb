@@ -3,7 +3,12 @@ class WigsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @wigs = policy_scope(Wig)
+    if params[:query].present?
+      # @wigs = policy_scope(Wig).where("name ILIKE ?", "%#{params[:query]}%")
+      @wigs = policy_scope(Wig).search_by_name(params[:query])
+    else
+      @wigs = policy_scope(Wig)
+    end
   end
 
   def show

@@ -79,4 +79,4 @@ end
 gem "devise"
 gem "pundit"
 gem "cloudinary"
-
+gem "pg_search"

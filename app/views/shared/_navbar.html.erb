@@ -10,12 +10,21 @@
     </button>
 
 
-  <div class="input-group rounded w-25">
+  <%= form_with url: wigs_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a wig"
+    %>
+    <%= submit_tag "Search", class: "btn btn-secondary" %>
+  <% end %>
+
+  <%# <div class="input-group rounded w-25">
     <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
     <span class="input-group-text border-0" id="search-addon">
       <i class="fas fa-search"></i>
     </span>
-  </div>
+  </div> %>
 
   <%# <form class="d-flex" role="search">
     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
