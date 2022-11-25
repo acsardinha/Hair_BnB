@@ -8,6 +8,7 @@
     <% end %>
   </p>
 
-  <p><%= link_to "Delete this wig", @wig, method: :delete if policy(@wig).destroy? %></p>
-  
+<%= link_to "DELETE", wig_path(@wig), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this wig?"}, class: "btn-edit" %>
+
+
 </div>
