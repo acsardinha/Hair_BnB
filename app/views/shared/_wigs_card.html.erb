@@ -1,9 +1,10 @@
 <div class="card-trip">
+<%= link_to wig_path(wig),class: "text-decoration-none text-body" do %>
   <%= cl_image_tag wig.photo.key, height: 300, width: 400, crop: :fill %>
   <div class="card-trip-infos">
 
     <div>
-      <%= link_to wig_path(wig),class: "text-decoration-none text-body" do %>
+
         <h2><%= wig.name %></h2>
       <% end %>
       <p><%= wig.user.email %></p>
@@ -12,8 +13,12 @@
     <h2 class="card-trip-pricing">
       <p><%= wig.price %>€</p>
     </h2>
-
+  <% if wig.user.photo.attached? %>
     <%= cl_image_tag wig.user.photo.key, height: 35, width: 35, crop: :fill, class:"card-trip-user avatar-bordered" %>
+  <% else %>
+    <%= image_tag "_afro.svg", crop: :fill , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  <% end %>
+
   </div>
 
 </div>
