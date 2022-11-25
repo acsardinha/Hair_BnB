@@ -1,1 +1,58 @@
-<h1> TEST </h1>
+<div id="<%= dom_id @user %>">
+  <div class="container-show d-flex justify-content-between">
+
+    <div class="col-4">
+      <%= cl_image_tag @user.photo.key, height: 400, width: 300, class: "img-wig" %>
+    </div>
+
+    <div class="mid-card col-8">
+
+      <div id="description">
+        <p>
+          <h4><strong>Email:</strong></h4>
+        </p>
+        <p>
+          <%= @user.email %>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <%# segundo card - Selling: %>
+
+
+  <div class="container-show mt-4">
+    <div>
+      <h3 class="m-3">Wigs</h3>
+    </div>
+
+    <div class= "container cards m-2">
+      <% @wigs.each do |wig| %>
+        <% if wig.user == current_user  %>
+          <%= render "shared/wigs_card", wig: wig %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <%# terceiro card - Orders: %>
+
+
+  <div class="container-show mt-4">
+    <div>
+      <h3 class="m-3">Orders</h3>
+    </div>
+    <div class= "container cards m-2">
+      <% @sellings.each do |selling| %>
+        <% if selling.user_id == current_user.id  %>
+          <%= render "shared/wigs_card", wig: @wigs.find(selling.wig_id) %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+
+
+
+
+</div>
