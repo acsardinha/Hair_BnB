@@ -1,53 +1,65 @@
 <div id="<%= dom_id wig %>">
-  <div class="container-show d-flex justify-content-between">
 
+  <%# div da imagem %>
+  <div class="container-show d-flex justify-content-between">
     <div class="col-4">
       <%= cl_image_tag wig.photo.key, height: 400, width: 300, class: "img-wig" %>
     </div>
 
-    <div class="mid-card col-8">
+    <%# div das informacoes %>
+    <div class="col-8">
+      <p> <span class="h2"><strong><%= wig.name %></strong></span> </p>
 
-      <p>
-        <span class="h2"><strong><%= wig.name %></strong></span>
-      </p>
-
-
+      <%# div ad descriçao %>
       <div id="description">
-        <p>
-          <h4><strong>Description:</strong></h4>
-        </p>
-        <p>
-        <%= wig.description %>
-        </p>
+        <p> <h4><strong>Description:</strong></h4> </p>
+        <p> <%= wig.description %> </p>
       </div>
-      <div class= "d-flex">
-        <div>
-          <div id="wig-type">
-            <p>
-              <span class="h4"><strong> Wig Type: </strong></span><%= wig.wig_type %>
-            </p>
+
+      <%# div das caracteristicas %>
+      <div class= "wig-features">
+        <div id="type-color">
+
+          <div>
+            <p> <span class="h4"><strong> Wig Type: </strong></span><%= wig.wig_type %> </p>
           </div>
-          <div id= "wig-color">
-            <p>
-              <span class="h4"><strong>Color: </strong></span><%= wig.color %>
-            </p>
+
+          <div>
+            <p> <span class="h4"><strong>Color: </strong></span><%= wig.color %> </p>
           </div>
+
         </div>
-        <div>
+
+        <div id= "owner-price">
           <div>
-            <p>
-              <span class="h4"><strong>Wig Owner: </strong></span><%= wig.user.email %>
-            </p>
+            <p> <span class="h4"><strong>Seller: </strong></span><%= wig.user.email %> </p>
           </div>
+
           <div>
-            <p>
-              <span class="h4"><strong>Price:</strong></span>
-              <%= wig.price %> €
-            </p>
+            <p> <span class="h4"><strong>Price:</strong></span> <%= wig.price %> € </p>
           </div>
-          <%= render "/shared/buy_button", wig: @wig, selling: @selling, class: "btn btn-primary" %>
+
+            <%# <% if policy_scope (@wig).edit? %>
+            <%# <div class="edit-delete">
+              <%= render "/shared/buy_button", wig: @wig, selling: @selling%>
+            <%# </div>
+          </div>
+          </div>
+              <p> <%= link_to "Back", wigs_path, class: "back-btn" %> <%# </p> %>
+
+
+
         </div>
       </div>
+
+
+      <% unless policy(wig).edit? %>
+        <%= render "/shared/buy_button", wig: wig, selling: @selling, class: "edit-delete" %>
+      <%# <% else %>
+        
+      <% end %>
+
+
     </div>
   </div>
 </div>
