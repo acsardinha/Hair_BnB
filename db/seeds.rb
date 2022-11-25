@@ -12,6 +12,9 @@ User.destroy_all
 require 'open-uri'
 
 user = User.create!(email: "test@test.com", password: "123456")
+file_user = URI.open('https://res.cloudinary.com/dxtsuiudu/image/upload/v1669377328/user-icon_gyktbf.png')
+user.photo.attach(io: file_user, filename: "", content_type: 'image/png')
+user.save!
 
 # wig_one
 wig_one = Wig.new(wig_type: "Straight", color: "Brown", name: "Short Size Brown Straight Wig", description: "Powerful and absolutely perfect! Precision cut, short wig with brown short layers. The possibilities are endless: you can wear it slicked, swooped, or spiked with a bit of product.", price: 238.60, user: user)
